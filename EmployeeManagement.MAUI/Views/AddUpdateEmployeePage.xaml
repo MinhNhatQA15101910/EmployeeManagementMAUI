@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="UserManagement.MAUI.Views.AddUpdateEmployeePage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Label">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="TextColor" Value="SlateGray" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout Margin="10">
+    <ActivityIndicator IsRunning="{Binding IsLoading}" />
+
+    <VerticalStackLayout>
+      <Label FontSize="16" Text="Username" />
+      <Entry Placeholder="Username" Text="{Binding Username}" />
+    </VerticalStackLayout>
+
+    <VerticalStackLayout>
+      <Label FontSize="16" Text="First Name" />
+      <Entry Placeholder="First Name" Text="{Binding FirstName}" />
+    </VerticalStackLayout>
+
+    <VerticalStackLayout>
+      <Label FontSize="16" Text="Last Name" />
+      <Entry Placeholder="Last Name" Text="{Binding LastName}" />
+    </VerticalStackLayout>
+
+    <VerticalStackLayout>
+      <Label FontSize="16" Text="Email" />
+      <Entry Placeholder="Email" Text="{Binding Email}" />
+    </VerticalStackLayout>
+
+    <VerticalStackLayout>
+      <Label FontSize="16" Text="Date of Birth" />
+      <DatePicker Date="{Binding DateOfBirth}" />
+    </VerticalStackLayout>
+
+    <Button Command="{Binding AddUpdateEmployeeCommand}" Text="Save Employee Details" />
+  </StackLayout>
+</ContentPage>

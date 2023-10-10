@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+  x:Class="UserManagement.MAUI.Views.HomePage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:local="clr-namespace:UserManagement.MAUI.Views"
+  Title="Home"
+  BarBackgroundColor="DarkBlue"
+  BarTextColor="White"
+  NavigationPage.HasBackButton="False"
+  NavigationPage.HasNavigationBar="False"
+  SelectedTabColor="DeepSkyBlue"
+  Shell.NavBarIsVisible="False"
+  UnselectedTabColor="BlueViolet">
+
+  <local:EmployeeListPage Title="Employee List" IconImageSource="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
+  <local:CurrentEmployeeInfoPage Title="Your Information" IconImageSource="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
+</TabbedPage>

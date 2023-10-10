@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="UserManagement.MAUI.Views.EmployeeListPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:viewModels="clr-namespace:UserManagement.MAUI.ViewModels"
+  Title="EmployeeListPage">
+  <StackLayout Margin="15">
+    <Label FontSize="30" Text="Employee List" />
+    <Button
+      Command="{Binding NavigateToAddUpdateEmployeePageCommand}"
+      HorizontalOptions="EndAndExpand"
+      Text="Add Employee" />
+
+    <ActivityIndicator IsRunning="{Binding IsLoading}" />
+
+    <ScrollView>
+      <CollectionView
+        IsVisible="{Binding IsEmployeeListVisible}"
+        ItemsSource="{Binding EmployeeList}"
+        VerticalScrollBarVisibility="Always">
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <Border Margin="10" Padding="10">
+              <StackLayout>
+                <Label
+                  FontAttributes="Bold"
+                  FontSize="18"
+                  Text="{Binding Username}" />
+
+                <HorizontalStackLayout Spacing="15">
+                  <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="{Binding FirstName}" />
+                  <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="{Binding LastName}" />
+                </HorizontalStackLayout>
+                <Label
+                  FontAttributes="Bold"
+                  FontSize="18"
+                  Text="{Binding Email}" />
+                <Label
+                  FontAttributes="Bold"
+                  FontSize="18"
+                  Text="{Binding DateOfBirth}" />
+              </StackLayout>
+
+              <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:EmployeeListViewModel}}, Path=DisplayActionCommand}" CommandParameter="{Binding}" />
+              </Border.GestureRecognizers>
+            </Border>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </ScrollView>
+  </StackLayout>
+</ContentPage>
